@@ -137,7 +137,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/sign_up_text"
+                android:id="@+id/go_to_signup_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
