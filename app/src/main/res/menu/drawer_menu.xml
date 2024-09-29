@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_cleaning"
+        android:title="Cleaning Routine" />
+    <item
+        android:id="@+id/nav_access"
+        android:title="Access Management" />
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Settings" />
+</menu>
