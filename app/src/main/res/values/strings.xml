@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">purigone</string>
     <string name="Purigone">Purigone</string>
+    <string-array name="device_array">
+        <item>Choose a Device</item>
+        <item>Device 1</item>
+        <item>Device 2</item>
+        <item>Device 3</item>
+    </string-array>
 </resources>
