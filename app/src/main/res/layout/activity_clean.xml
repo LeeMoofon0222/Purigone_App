@@ -51,68 +51,71 @@
                 android:contentDescription="Logout"/>
         </androidx.appcompat.widget.Toolbar>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_centerInParent="true">
 
-
-            <TextView
-                android:id="@+id/restaurant_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="60dp"
-                android:text="Clean Routine"
-                android:textColor="#FFFFFF"
-                android:textSize="48sp"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-condensed-medium"/>
-
-            <Spinner
-                android:id="@+id/device_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="40dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/spinner_background"
-                android:popupBackground="#FFFFFF"
-                android:padding="12dp"/>
-
-            <!-- New TimePicker section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="40dp">
+                android:gravity="center"
+                android:orientation="vertical">
 
-                <com.example.purigone.AlarmItem
-                    android:id="@+id/alarmItem1"
+                <TextView
+                    android:id="@+id/restaurant_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="60dp"
+                    android:text="Clean Routine"
+                    android:textColor="#FFFFFF"
+                    android:textSize="48sp"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-condensed-medium"/>
+
+                <Spinner
+                    android:id="@+id/device_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="40dp"
-                    android:background="@drawable/alarm_item_background"/>
-
-                <com.example.purigone.AlarmItem
-                    android:id="@+id/alarmItem2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="40dp"
-                    android:background="@drawable/alarm_item_background"/>
-
-                <com.example.purigone.AlarmItem
-                    android:id="@+id/alarmItem3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/alarm_item_background"/>
+                    android:background="@drawable/spinner_background"
+                    android:popupBackground="#FFFFFF"
+                    android:padding="12dp"/>
 
+                <!-- New TimePicker section with scroll functionality -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginHorizontal="40dp">
+
+                    <com.example.purigone.AlarmItem
+                        android:id="@+id/alarmItem1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="40dp"
+                        android:background="@drawable/alarm_item_background"/>
+
+                    <com.example.purigone.AlarmItem
+                        android:id="@+id/alarmItem2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="40dp"
+                        android:background="@drawable/alarm_item_background"/>
+
+                    <com.example.purigone.AlarmItem
+                        android:id="@+id/alarmItem3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/alarm_item_background"/>
+
+                    <!-- Add more AlarmItem if needed -->
+                </LinearLayout>
             </LinearLayout>
-
-        </LinearLayout>
-
+        </ScrollView>
     </RelativeLayout>
 
     <!-- Navigation Drawer -->
@@ -126,6 +129,5 @@
         app:itemTextColor="@android:color/white"
         app:itemTextAppearance="@style/LargeMenuItemStyle"
         app:headerLayout="@layout/nav_header_layout">
-
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -58,15 +58,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif-condensed-medium"/>
 
-            <ImageButton
-                android:id="@+id/restaurant_img"
-                android:layout_width="320dp"
-                android:layout_height="320dp"
-                android:layout_margin="16dp"
-                android:background="@null"
-                android:src="@drawable/restaurant_example"
-                android:scaleType="fitCenter"
-                android:contentDescription="Restaurant Image"/>
+            
 
             <Button
                 android:id="@+id/report_btn"
@@ -77,9 +69,10 @@
                 android:background="@drawable/rounded_corner"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:padding="12dp"
-                android:text="Stain Report"
+                android:text="+   Add"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="28sp"
+                android:textAllCaps="false"/>
         </LinearLayout>
 
     </RelativeLayout>
@@ -95,6 +88,6 @@
         app:itemTextColor="@android:color/white"
         app:itemTextAppearance="@style/LargeMenuItemStyle"
         app:headerLayout="@layout/nav_header_layout">
-
     </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>
