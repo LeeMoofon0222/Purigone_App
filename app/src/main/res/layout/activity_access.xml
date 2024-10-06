@@ -42,6 +42,7 @@
         </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -58,21 +59,12 @@
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif-condensed-medium"/>
 
-            
-
-            <Button
-                android:id="@+id/report_btn"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="120dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/rounded_corner"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:padding="12dp"
-                android:text="+   Add"
-                android:textColor="@color/white"
-                android:textSize="28sp"
-                android:textAllCaps="false"/>
+                android:layout_height="wrap_content" />
+
+
         </LinearLayout>
 
     </RelativeLayout>

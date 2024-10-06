@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Purigone"
-                android:textColor="#FFFFFF"
+                android:textColor="#283044"
                 android:textSize="28sp"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif-condensed"
@@ -106,13 +106,8 @@
                         android:text="Access: "
                         android:textColor="#FFFFFF"
                         android:textSize="28sp"
-                        android:layout_marginBottom="24dp"/>
+                        android:layout_marginBottom="56dp"/>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:elevation="4dp">
 
                         <Button
                             android:id="@+id/btnContactUs"
@@ -123,9 +118,20 @@
                             android:textColor="#FFFFFF"
                             android:textAllCaps="false"
                             android:padding="16dp"
+                            android:background="@drawable/button_background"
+                            android:layout_marginBottom="56dp"/>
+
+                        <Button
+                            android:id="@+id/btnLogout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Logout"
+                            android:textSize="18sp"
+                            android:textColor="#E41111"
+                            android:textAllCaps="false"
+                            android:padding="16dp"
                             android:background="@drawable/button_background"/>
 
-                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
             </ScrollView>
