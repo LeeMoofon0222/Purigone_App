@@ -94,7 +94,7 @@
                         android:id="@+id/tvUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Your Name: "
+                        android:text="Name: "
                         android:textColor="#FFFFFF"
                         android:textSize="28sp"
                         android:layout_marginBottom="28dp"/>
