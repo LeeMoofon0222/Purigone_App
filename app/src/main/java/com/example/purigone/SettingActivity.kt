@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.purigone.Util.UI
 import com.example.purigone.databinding.ActivitySettingBinding
 import com.example.purigone.model.UserModel
 import com.google.android.material.navigation.NavigationView
@@ -20,6 +21,9 @@ class SettingActivity : AppCompatActivity() {
     private lateinit var navigationView: NavigationView
     private lateinit var firestore: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
+    // 添加成員變數
+    private var userAccess: String = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,9 +61,11 @@ class SettingActivity : AppCompatActivity() {
                     user?.let {
                         // 確保設置文檔 ID
                         it.id = document.id
+                        // 將 access 存到成員變數中
+                        userAccess = it.access
                         // 更新 UI
                         binding.tvUserName.text = "Name: ${it.name}"
-                        binding.tvUserPermission.text = "Access: ${it.access}"
+                        binding.tvUserPermission.text = "Access: ${userAccess}"
                     }
                 } else {
                     Log.d("SettingActivity", "No such document")
@@ -103,12 +109,22 @@ class SettingActivity : AppCompatActivity() {
                     finish()
                 }
                 R.id.nav_cleaning -> {
-                    startActivity(Intent(this, CleanActivity::class.java))
-                    finish()
+                    if(userAccess == "Admin"){
+                        startActivity(Intent(this, CleanActivity::class.java))
+                        finish()
+                    }
+                    else{
+                        UI.showToast(this,"You have no access to view this page")
+                    }
                 }
                 R.id.nav_access -> {
-                    startActivity(Intent(this, AccessActivity::class.java))
-                    finish()
+                    if(userAccess == "Admin"){
+                        startActivity(Intent(this, AccessActivity::class.java))
+                        finish()
+                    }
+                    else{
+                        UI.showToast(this,"You have no access to view this page")
+                    }
                 }
                 R.id.nav_settings -> {
                     // 已在設定頁面，不需處理

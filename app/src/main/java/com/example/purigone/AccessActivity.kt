@@ -85,20 +85,23 @@ class AccessActivity : AppCompatActivity() {
     }
     private fun fetchUserData() {
         val db = FirebaseFirestore.getInstance()
+        Log.d("AccessActivity", "Starting to fetch user data")
 
         db.collection("users")
             .get()
             .addOnSuccessListener { result ->
+                Log.d("AccessActivity", "Successfully fetched ${result.size()} documents")
                 for (document in result) {
                     val user = document.toObject(UserModel::class.java)
-                    user.id = document.id // 設置 ID
-                    userList.add(user) // 加入到列表
+                    user.id = document.id
+                    userList.add(user)
+                    Log.d("AccessActivity", "Added user: ${user.id}")
                 }
-                // 通知 Adapter 更新資料
                 userAdapter.notifyDataSetChanged()
+                Log.d("AccessActivity", "Notified adapter of data change")
             }
             .addOnFailureListener { exception ->
-                Log.w("TAG", "Error getting documents.", exception)
+                Log.e("AccessActivity", "Error getting documents: ", exception)
             }
     }
 

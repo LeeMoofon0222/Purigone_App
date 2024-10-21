@@ -7,10 +7,12 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/purigone_python_test/purigone-f5ba5-firebase-adminsdk-ktqc8-642595f55d.json
 /app/google-services.json
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
+.env
 local.properties

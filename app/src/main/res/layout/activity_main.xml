@@ -52,11 +52,11 @@
                 android:id="@+id/restaurant_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-condensed-medium"
                 android:text="Restaurant"
                 android:textColor="#FFFFFF"
-                android:textSize="48sp"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-condensed-medium"/>
+                android:textSize="48sp" />
 
             <ImageButton
                 android:id="@+id/restaurant_img"
@@ -64,9 +64,9 @@
                 android:layout_height="320dp"
                 android:layout_margin="16dp"
                 android:background="@null"
-                android:src="@drawable/restaurant_example"
+                android:contentDescription="Restaurant Image"
                 android:scaleType="fitCenter"
-                android:contentDescription="Restaurant Image"/>
+                android:src="@drawable/restaurant_example" />
 
             <Button
                 android:id="@+id/report_btn"
@@ -79,7 +79,7 @@
                 android:padding="12dp"
                 android:text="Stain Report"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
     </RelativeLayout>

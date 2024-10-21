@@ -63,7 +63,7 @@ class SignUpActivity : AppCompatActivity() {
         signUpWithFirebase(email,password,name)
     }
 
-    fun signUpWithFirebase(email : String, password : String, name : String){
+    private fun signUpWithFirebase(email : String, password : String, name : String){
         //setInProgress(true)
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(
             email,password
