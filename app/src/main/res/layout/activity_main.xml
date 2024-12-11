@@ -54,9 +54,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="Restaurant"
+                android:text="停車場"
                 android:textColor="#FFFFFF"
                 android:textSize="48sp" />
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/restaurant_img"-->
+<!--                android:layout_width="320dp"-->
+<!--                android:layout_height="320dp"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:background="@null"-->
+<!--                android:contentDescription="Restaurant Image"-->
+<!--                android:scaleType="fitCenter"-->
+<!--                android:src="@drawable/restaurant_example" />-->
 
             <ImageButton
                 android:id="@+id/restaurant_img"
@@ -66,7 +76,7 @@
                 android:background="@null"
                 android:contentDescription="Restaurant Image"
                 android:scaleType="fitCenter"
-                android:src="@drawable/restaurant_example" />
+                android:src="@drawable/scan" />
 
             <Button
                 android:id="@+id/report_btn"
@@ -77,7 +87,7 @@
                 android:background="@drawable/rounded_corner"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:padding="12dp"
-                android:text="Stain Report"
+                android:text="髒污通報"
                 android:textColor="@color/white"
                 android:textSize="24sp" />
         </LinearLayout>

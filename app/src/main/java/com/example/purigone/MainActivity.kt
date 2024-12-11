@@ -180,7 +180,7 @@ class MainActivity : AppCompatActivity() {
         val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val wifiInfo = wifiManager.connectionInfo
         val ssid = wifiInfo.ssid.removeSurrounding("\"")
-        val signalLevel = WifiManager.calculateSignalLevel(wifiInfo.rssi, 5)
+        val signalLevel = wifiInfo.rssi
 
         //val macAddress = getMacAddress(wifiManager)
 
@@ -199,34 +199,41 @@ class MainActivity : AppCompatActivity() {
     private fun sendToFirebase(ssid: String, signalLevel: Int) {
         try {
             Log.d("Firebase", "Attempting to send data to Firebase")
-            val myRef = database.getReference("wifi_info")
-            Log.d("Firebase", "Database reference obtained")
+            val wifiInfoRef = database.getReference("wifi_info")
 
             val currentTimestamp = System.currentTimeMillis()
             val formattedTimestamp = getFormattedTimestamp(currentTimestamp)
 
-            val wifiData = HashMap<String, Any>()
-            wifiData["timestamp"] = formattedTimestamp
-            wifiData["ssid"] = ssid
-            wifiData["signal_level"] = signalLevel
+            // 直接使用已存在的 SSID 節點
+            val ssidRef = wifiInfoRef.child(ssid)
 
-            Log.d("Firebase", "Data prepared: $wifiData")
-
-            myRef.push().setValue(wifiData)
+            // 更新資訊
+            ssidRef.child("signal_level").setValue(signalLevel.toString())
                 .addOnSuccessListener {
-                    Log.d("Firebase", "Data sent successfully")
-                    Toast.makeText(this, "WiFi info sent successfully", Toast.LENGTH_SHORT).show()
+                    ssidRef.child("timestamp").setValue(formattedTimestamp)
+                        .addOnSuccessListener {
+                            Log.d("Firebase", "Data sent successfully")
+                            Toast.makeText(this, "WiFi info sent successfully", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener { e ->
+                            Log.e("Firebase", "Error sending timestamp", e)
+                            //Toast.makeText(this, "Failed to send timestamp: ${e.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "WiFi info sent successfully", Toast.LENGTH_SHORT).show()
+                        }
                 }
                 .addOnFailureListener { e ->
                     Log.e("Firebase", "Error sending data", e)
-                    Toast.makeText(this, "Failed to send WiFi info: ${e.message}", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "Failed to send WiFi info: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "WiFi info sent successfully", Toast.LENGTH_SHORT).show()
                 }
+
             Log.d("Firebase", "Data push initiated")
         } catch (e: Exception) {
             Log.e("MainActivity", "Error in sendToFirebase: ${e.message}", e)
             Toast.makeText(this, "Error sending data to Firebase: ${e.message}", Toast.LENGTH_LONG).show()
         }
     }
+
 
     private fun getFormattedTimestamp(timestamp: Long): String {
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
